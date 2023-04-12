@@ -12,24 +12,24 @@ class FontWeightManager{
 
 abstract class TextStyles{
   static TextStyle textStyle18=TextStyle(
-    fontSize: 17.sp,
+    fontSize: 16.sp,
     fontWeight: FontWeightManager.semiBold
   );
   static TextStyle textStyle20=TextStyle(
-    fontSize: 19.sp,
+    fontSize: 18.sp,
     fontWeight: FontWeightManager.regular,
-    fontFamily: AppConstants.kGtSectraFine
+
   );
   static TextStyle textStyle14=TextStyle(
-    fontSize: 13.sp,
+    fontSize: 12.sp,
     fontWeight: FontWeightManager.regular
   );
   static TextStyle textStyle16=TextStyle(
-    fontSize: 15.sp,
+    fontSize: 14.sp,
     fontWeight: FontWeightManager.medium
   );
   static TextStyle textStyle30=TextStyle(
-    fontSize: 29.sp,
+    fontSize: 28.sp,
     fontWeight: FontWeightManager.medium
   );
 }

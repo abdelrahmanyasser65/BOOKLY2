@@ -14,8 +14,8 @@ class BookRating extends StatelessWidget {
       children: [
         DefaultText(
           text: Strings.price,
-          textStyle: TextStyles.textStyle20
-              .copyWith(fontWeight: FontWeightManager.bold),
+          textStyle: TextStyles.textStyle18
+              .copyWith(fontWeight: FontWeightManager.semiBold),
         ),
         DefaultText(
           text: " €",

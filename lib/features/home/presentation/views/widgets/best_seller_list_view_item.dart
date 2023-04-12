@@ -13,7 +13,9 @@ class BestSellerListViewItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(left: Sized.s3, right: Sized.s3, top: Sized.s2),
+      margin: EdgeInsets.only(
+          left: Sized.s3, right: Sized.s3,
+          top: Sized.s3),
       height: Sized.s14,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,

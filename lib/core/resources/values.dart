@@ -22,6 +22,7 @@ class Sized{
   static double s15=15.h;
   static double s17=17.h;
   static double s20=20.h;
+  static double s22=22.h;
   static double s25=25.h;
   static double s30=30.h;
   static double s40=40.h;

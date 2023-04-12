@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:sizer/sizer.dart';
 
+import '../features/splash/presentation/splash_view.dart';
+
 class BooklyApp extends StatelessWidget {
   const BooklyApp({Key? key}) : super(key: key);
 
@@ -16,7 +18,7 @@ class BooklyApp extends StatelessWidget {
           ).copyWith(
             scaffoldBackgroundColor:const Color(0xff100B20),
           ),
-          //home:const SplashView(),
+          home:const SplashView(),
         );
       },
     );

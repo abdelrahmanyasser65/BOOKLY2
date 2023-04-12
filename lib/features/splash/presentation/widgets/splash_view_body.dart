@@ -5,6 +5,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import '../../../../core/resources/constants.dart';
 import '../../../../core/resources/values.dart';
+import '../../../home/presentation/views/home_view.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({Key? key}) : super(key: key);
@@ -62,9 +63,9 @@ class _SplashViewBodyState extends State<SplashViewBody>
 
   void navigateToHome() {
     Future.delayed(AppConstants.splashDelay, () {
-      // Get.to(() => const HomeView(),
-      //     transition: Transition.fade,
-      //     duration: AppConstants.kTransitionDuration);
+      Get.to(() => const HomeView(),
+          transition: Transition.fade,
+          duration: AppConstants.kTransitionDuration);
     });
   }
 }

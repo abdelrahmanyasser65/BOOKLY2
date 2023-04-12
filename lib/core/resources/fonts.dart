@@ -1,3 +1,4 @@
+import 'package:bookly/core/resources/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
@@ -8,18 +9,27 @@ class FontWeightManager{
   static const FontWeight semiBold=FontWeight.w600;
   static const FontWeight bold=FontWeight.w700;
 }
-class FontSized{
-  static double fs8=8.sp;
-  static double fs10=10.sp;
-  static double fs12=12.sp;
-  static double fs14=14.sp;
-  static double fs16=16.sp;
-  static double fs18=18.sp;
-  static double fs20=20.sp;
-  static double fs22=22.sp;
-  static double fs24=24.sp;
-  static double fs26=26.sp;
-  static double fs28=28.sp;
-  static double fs30=30.sp;
-  static double fs32=32.sp;
+
+abstract class TextStyles{
+  static TextStyle textStyle18=TextStyle(
+    fontSize: 17.sp,
+    fontWeight: FontWeightManager.semiBold
+  );
+  static TextStyle textStyle20=TextStyle(
+    fontSize: 19.sp,
+    fontWeight: FontWeightManager.regular,
+    fontFamily: AppConstants.kGtSectraFine
+  );
+  static TextStyle textStyle14=TextStyle(
+    fontSize: 13.sp,
+    fontWeight: FontWeightManager.regular
+  );
+  static TextStyle textStyle16=TextStyle(
+    fontSize: 15.sp,
+    fontWeight: FontWeightManager.medium
+  );
+  static TextStyle textStyle30=TextStyle(
+    fontSize: 29.sp,
+    fontWeight: FontWeightManager.medium
+  );
 }

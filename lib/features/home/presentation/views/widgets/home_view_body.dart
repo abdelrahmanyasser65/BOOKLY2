@@ -1,6 +1,6 @@
+import 'package:bookly/core/resources/fonts.dart';
 import 'package:bookly/core/resources/images.dart';
 import 'package:bookly/core/resources/strings.dart';
-import 'package:bookly/core/resources/styles.dart';
 import 'package:bookly/core/resources/values.dart';
 import 'package:bookly/core/widget/default_text.dart';
 import 'package:bookly/features/home/presentation/views/widgets/custom_app_bar.dart';
@@ -18,10 +18,11 @@ class HomeViewBody extends StatelessWidget {
         const CustomAppBar(),
         const FeaturedBooksListView(),
         Padding(
-          padding: EdgeInsets.only(left: Sized.s3, top: Sized.s5),
+          padding: EdgeInsets.only(left: Sized.s3,
+              top: Sized.s4),
           child: DefaultText(
             text: Strings.beatSeller,
-            textStyle: TextStyles.titleMedium,
+            textStyle: TextStyles.textStyle18,
           ),
         ),
         BestSellerListViewItem(),
@@ -38,7 +39,7 @@ class BestSellerListViewItem extends StatelessWidget {
       margin: EdgeInsets.only(
         left: Sized.s3,
         right: Sized.s3,
-        top: Sized.s3
+        top: Sized.s2
       ),
       height: Sized.s14,
       child: Row(

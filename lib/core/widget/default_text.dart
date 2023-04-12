@@ -4,18 +4,19 @@ class DefaultText extends StatelessWidget {
     this.textAlign,
     this.fontSize,
     this.fontWeight,
-    this.color}) : super(key: key);
+    this.color, this.textStyle}) : super(key: key);
   final String text;
   final TextAlign ?textAlign;
   final double ?fontSize;
   final FontWeight ?fontWeight;
   final Color? color;
+  final TextStyle ?textStyle;
   @override
   Widget build(BuildContext context) {
     return Text(
       text,
       textAlign: textAlign,
-      style: TextStyle(
+      style:textStyle ?? TextStyle(
         fontWeight: fontWeight,
         fontSize: fontSize,
         color: color,

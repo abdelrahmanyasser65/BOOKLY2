@@ -1,7 +1,10 @@
 import 'package:bookly/core/resources/images.dart';
+import 'package:bookly/core/resources/strings.dart';
+import 'package:bookly/core/resources/styles.dart';
 import 'package:bookly/core/resources/values.dart';
+import 'package:bookly/core/widget/default_text.dart';
 import 'package:bookly/features/home/presentation/views/widgets/custom_app_bar.dart';
-import 'package:bookly/features/home/presentation/views/widgets/custom_list_view_item.dart';
+import 'package:bookly/features/home/presentation/views/widgets/featured_list_view.dart';
 import 'package:flutter/material.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -10,34 +13,55 @@ class HomeViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children:  [
-     const   CustomAppBar(),
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const CustomAppBar(),
+        const FeaturedBooksListView(),
         Padding(
-            padding: EdgeInsets.only(
-              left: Sized.s2
-            ),
-            child:const FeaturedBooksListView()),
+          padding: EdgeInsets.only(left: Sized.s3, top: Sized.s5),
+          child: DefaultText(
+            text: Strings.beatSeller,
+            textStyle: TextStyles.titleMedium,
+          ),
+        ),
+        BestSellerListViewItem(),
       ],
     );
   }
 }
-
-class FeaturedBooksListView extends StatelessWidget {
-  const FeaturedBooksListView({Key? key}) : super(key: key);
+class BestSellerListViewItem extends StatelessWidget {
+  const BestSellerListViewItem({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-   return SizedBox(
-     height: Sized.s25,
-     child: ListView.builder(
-       scrollDirection: Axis.horizontal,
-       //itemCount: 4,
-       itemBuilder: (context,index){
-         return const CustomListViewItem();
-       },
-     ),
-   );
+    return Container(
+      margin: EdgeInsets.only(
+        left: Sized.s3,
+        right: Sized.s3,
+        top: Sized.s3
+      ),
+      height: Sized.s14,
+      child: Row(
+        children: [
+          AspectRatio(
+            aspectRatio: 2.5/4,
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  color: Colors.red,
+                  image:const DecorationImage(
+                    image: AssetImage(
+                      Images.imageList
+                    ),
+                    fit: BoxFit.fill,
+                  )
+                ),
+              ),
+          ),
+           Column()
+        ],
+      ),
+    );
   }
 }
-
 

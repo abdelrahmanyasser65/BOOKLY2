@@ -1,5 +1,5 @@
 import 'package:bookly/core/resources/values.dart';
-import 'package:bookly/features/home/presentation/views/widgets/custom_list_view_item.dart';
+import 'package:bookly/features/home/presentation/views/widgets/home/custom_list_view_item.dart';
 import 'package:flutter/material.dart';
 class FeaturedBooksListView extends StatelessWidget {
   const FeaturedBooksListView({Key? key}) : super(key: key);

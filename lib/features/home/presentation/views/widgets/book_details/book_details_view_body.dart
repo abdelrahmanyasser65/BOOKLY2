@@ -1,13 +1,5 @@
-import 'package:bookly/core/resources/colors.dart';
-import 'package:bookly/core/resources/fonts.dart';
-import 'package:bookly/core/resources/strings.dart';
-import 'package:bookly/core/resources/values.dart';
-import 'package:bookly/core/widget/custom_button.dart';
-import 'package:bookly/core/widget/default_text.dart';
-import 'package:bookly/features/home/presentation/views/widgets/book_details/custom_book_details_app_bar.dart';
-import 'package:bookly/features/home/presentation/views/widgets/book_details/details_action.dart';
-import 'package:bookly/features/home/presentation/views/widgets/home/book_rating.dart';
-import 'package:bookly/features/home/presentation/views/widgets/home/custom_book_image.dart';
+import 'package:bookly/features/home/presentation/views/widgets/book_details/first_side_book_details.dart';
+import 'package:bookly/features/home/presentation/views/widgets/book_details/similar_books_list_view.dart';
 import 'package:flutter/material.dart';
 
 class BookDetailsViewBody extends StatelessWidget {
@@ -15,42 +7,19 @@ class BookDetailsViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(
-        horizontal: Sized.s4,
-      ),
-      child: Column(
-        children: [
-          const CustomBookDetailsAppBar(),
-          Padding(
-              padding: EdgeInsets.only(
-                  left: Sized.s8,
-                  right: Sized.s8,
-                  top: Sized.s2,
-                  bottom: Sized.s5),
-              child: const CustomBookImage()),
-          DefaultText(
-              text: Strings.titleBook, textStyle: TextStyles.textStyle30),
-          SizedBox(
-            height: Sized.sh8,
+    return CustomScrollView(
+      physics: const BouncingScrollPhysics(),
+      slivers: [
+        SliverFillRemaining(
+          hasScrollBody: false,
+          child: Column(
+            children: const [
+              FirstSideBookDetails(),
+              SimilarBooksListView(),
+            ],
           ),
-          Opacity(
-            opacity: 0.7,
-            child: DefaultText(
-                text: Strings.subTitleBook,
-                textStyle: TextStyles.textStyle18.copyWith()),
-          ),
-          SizedBox(
-            height: Sized.s2,
-          ),
-          const BookRating(
-            mainAxisAlignment: MainAxisAlignment.center,
-          ),
-          SizedBox(height: Sized.s4,),
-         const DetailsAction()
-        ],
-      ),
+        )
+      ],
     );
   }
 }
-

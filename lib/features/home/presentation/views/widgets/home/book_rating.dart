@@ -6,23 +6,14 @@ import 'package:bookly/core/widget/default_text.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class BookRating extends StatelessWidget {
-  const BookRating({Key? key}) : super(key: key);
-
+  const BookRating({Key? key,  this.mainAxisAlignment=MainAxisAlignment.start}) : super(key: key);
+final MainAxisAlignment mainAxisAlignment;
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment:mainAxisAlignment,
       children: [
-        DefaultText(
-          text: Strings.price,
-          textStyle: TextStyles.textStyle18
-              .copyWith(fontWeight: FontWeightManager.semiBold),
-        ),
-        DefaultText(
-          text: " €",
-          textStyle: TextStyles.textStyle16
-              .copyWith(fontWeight: FontWeightManager.bold),
-        ),
-        const Spacer(),
+
         Icon(
           FontAwesomeIcons.solidStar,
           color: ColorManager.starColor,
@@ -39,9 +30,12 @@ class BookRating extends StatelessWidget {
         SizedBox(
           width: Sized.s1,
         ),
-        DefaultText(
-          text: "(${Strings.download})",
-          textStyle: TextStyles.textStyle14.copyWith(color: ColorManager.grey),
+        Opacity(
+          opacity: .5,
+          child: DefaultText(
+            text: "(${Strings.download})",
+            textStyle: TextStyles.textStyle14,
+          ),
         )
       ],
     );

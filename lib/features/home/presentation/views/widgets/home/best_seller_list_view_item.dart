@@ -66,6 +66,17 @@ class BestSellerListViewItem extends StatelessWidget {
                   SizedBox(
                     height: Sized.sh8,
                   ),
+                  DefaultText(
+                    text: Strings.price,
+                    textStyle: TextStyles.textStyle18
+                        .copyWith(fontWeight: FontWeightManager.semiBold),
+                  ),
+                  DefaultText(
+                    text: " €",
+                    textStyle: TextStyles.textStyle16
+                        .copyWith(fontWeight: FontWeightManager.bold),
+                  ),
+                  const Spacer(),
                   const BookRating(),
                 ],
               ),

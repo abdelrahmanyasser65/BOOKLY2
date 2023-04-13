@@ -29,7 +29,8 @@ abstract class TextStyles{
     fontWeight: FontWeightManager.medium
   );
   static TextStyle textStyle30=TextStyle(
-    fontSize: 28.sp,
-    fontWeight: FontWeightManager.medium
+    fontSize: 25.sp,
+    fontWeight: FontWeightManager.bold,
+    fontFamily: AppConstants.kGtSectraFine
   );
 }

@@ -7,4 +7,6 @@ class ColorManager {
   static Color white = Colors.white;
   static Color grey = Colors.grey;
   static Color starColor=HexColor("#FFDD4F");
+  static Color buttonColor=HexColor("#EF8262");
+
 }

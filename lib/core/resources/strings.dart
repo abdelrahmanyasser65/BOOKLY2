@@ -4,6 +4,7 @@ class Strings{
   static const harryPotter="Harry Potter and the Goblet of fire";
   static const nameBook="J.K. Rowling";
   static const price="19.99";
+  static const bound="€";
   static const rate="4.8";
   static const download="2390";
   static const titleBook="The Jungle Book";

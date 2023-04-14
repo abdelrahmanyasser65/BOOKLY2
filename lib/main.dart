@@ -1,7 +1,8 @@
+import 'package:bookly/core/resources/service_locator.dart';
 import 'package:flutter/material.dart';
 
 import 'app/app.dart';
 void main() {
-  print("Abdo");
+  setupServiceLocator();
   runApp(const BooklyApp());
 }

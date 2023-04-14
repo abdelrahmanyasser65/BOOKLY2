@@ -11,4 +11,6 @@ class Strings{
   static const subTitleBook="Rudyard Kipling";
   static const freePreview="Free preview";
   static const youCanLike="You can also like";
+  static const search="search";
+  static const searchResult="Search Result";
 }

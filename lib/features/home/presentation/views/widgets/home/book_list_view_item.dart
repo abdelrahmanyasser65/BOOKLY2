@@ -9,8 +9,8 @@ import 'package:bookly/core/widget/default_text.dart';
 import 'package:bookly/features/home/presentation/views/widgets/home/book_rating.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-class BestSellerListViewItem extends StatelessWidget {
-  const BestSellerListViewItem({Key? key}) : super(key: key);
+class BookListViewItem extends StatelessWidget {
+  const BookListViewItem({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class BestSellerListViewItem extends StatelessWidget {
       child: Container(
         margin: EdgeInsets.only(
             left: Sized.s3, right: Sized.s3,
-            top: Sized.s3),
+            top: Sized.s2),
         height: Sized.s14,
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -66,18 +66,23 @@ class BestSellerListViewItem extends StatelessWidget {
                   SizedBox(
                     height: Sized.sh8,
                   ),
-                  DefaultText(
-                    text: Strings.price,
-                    textStyle: TextStyles.textStyle18
-                        .copyWith(fontWeight: FontWeightManager.semiBold),
-                  ),
-                  DefaultText(
-                    text: " €",
-                    textStyle: TextStyles.textStyle16
-                        .copyWith(fontWeight: FontWeightManager.bold),
-                  ),
-                  const Spacer(),
-                  const BookRating(),
+                 Row(
+                   children: [
+                     DefaultText(
+                       text: Strings.price,
+                       textStyle: TextStyles.textStyle18
+                           .copyWith(fontWeight: FontWeightManager.semiBold),
+                     ),
+                     DefaultText(
+                       text: " €",
+                       textStyle: TextStyles.textStyle16
+                           .copyWith(fontWeight: FontWeightManager.bold),
+                     ),
+                     const Spacer(),
+                     const BookRating(),
+                   ],
+                 )
+
                 ],
               ),
             )

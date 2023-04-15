@@ -15,18 +15,21 @@ class FeaturedBooksListView extends StatelessWidget {
 
       builder: (context, state) {
         if(state is FeaturedBooksSuccess) {
-          return Container(
-          margin: EdgeInsets.only(
-              left: Sized.s2
-          ),
+          return SizedBox(
           height: Sized.s25,
           child: ListView.builder(
             physics: const BouncingScrollPhysics(),
             scrollDirection: Axis.horizontal,
             itemCount: state.books.length,
             itemBuilder: (context, index) {
-              return  CustomBookImage(
-                imageUrl: state.books[index].volumeInfo.imageLinks.thumbnail,
+              return  Padding(
+                padding: EdgeInsets.only(
+                  left: Sized.s2,
+                  right: index==state.books.length-1?Sized.s2:0,
+                ),
+                child: CustomBookImage(
+                  imageUrl: state.books[index].volumeInfo.imageLinks.thumbnail,
+                ),
               );
             },
           ),

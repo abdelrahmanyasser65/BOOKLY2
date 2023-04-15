@@ -2,8 +2,6 @@ import 'package:bookly/core/app_router.dart';
 import 'package:bookly/core/resources/colors.dart';
 import 'package:bookly/core/resources/constants.dart';
 import 'package:bookly/core/resources/fonts.dart';
-import 'package:bookly/core/resources/images.dart';
-import 'package:bookly/core/resources/strings.dart';
 import 'package:bookly/core/resources/values.dart';
 import 'package:bookly/core/widget/default_text.dart';
 import 'package:bookly/features/home/data/models/BookModel.dart';
@@ -18,7 +16,7 @@ final BookModel bookModel;
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
-        GoRouter.of(context).push(AppRouter.rBookDetailsView);
+        GoRouter.of(context).push(AppRouter.rBookDetailsView,extra: bookModel);
       },
       child: Container(
         margin: EdgeInsets.only(

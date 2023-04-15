@@ -2,14 +2,15 @@ import 'package:bookly/core/resources/fonts.dart';
 import 'package:bookly/core/resources/strings.dart';
 import 'package:bookly/core/resources/values.dart';
 import 'package:bookly/core/widget/default_text.dart';
+import 'package:bookly/features/home/data/models/BookModel.dart';
 import 'package:bookly/features/home/presentation/views/widgets/book_details/custom_book_details_app_bar.dart';
 import 'package:bookly/features/home/presentation/views/widgets/book_details/details_action.dart';
 import 'package:bookly/features/home/presentation/views/widgets/home/book_rating.dart';
 import 'package:bookly/features/home/presentation/views/widgets/home/custom_book_image.dart';
 import 'package:flutter/material.dart';
 class FirstSideBookDetails extends StatelessWidget {
-  const FirstSideBookDetails({Key? key}) : super(key: key);
-
+  const FirstSideBookDetails({Key? key, required this.bookModel}) : super(key: key);
+final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     return  Padding(
@@ -24,31 +25,37 @@ class FirstSideBookDetails extends StatelessWidget {
                   left: Sized.s8,
                   right: Sized.s8,
                   top: Sized.s2,
-                  bottom: Sized.s5),
-              child: const CustomBookImage(
-                imageUrl: "https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aHVtYW58ZW58MHx8MHx8&w=1000&q=80",
+                  bottom: Sized.s4),
+              child:  CustomBookImage(
+                imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail??'',
               )),
           DefaultText(
-              text: Strings.titleBook, textStyle: TextStyles.textStyle30),
+              text: bookModel.volumeInfo.title
+
+              , textStyle: TextStyles.textStyle30,
+          textAlign:TextAlign.center,
+          ),
           SizedBox(
             height: Sized.sh8,
           ),
           Opacity(
             opacity: 0.7,
             child: DefaultText(
-                text: Strings.subTitleBook,
-                textStyle: TextStyles.textStyle18.copyWith()),
+                text: bookModel.volumeInfo.authors?[0]??"",
+                textStyle: TextStyles.textStyle18.copyWith(
+                  overflow: TextOverflow.ellipsis
+                )),
           ),
           SizedBox(
-            height: Sized.s2,
+            height: Sized.s1,
           ),
-          const BookRating(
-            rating: 5,
-            count: 4,
+           BookRating(
+            rating: bookModel.volumeInfo.averageRating??0,
+            count: bookModel.volumeInfo.ratingsCount??0,
             mainAxisAlignment: MainAxisAlignment.center,
           ),
           SizedBox(
-            height: Sized.s4,
+            height: Sized.s3,
           ),
           const DetailsAction(),
           Padding(

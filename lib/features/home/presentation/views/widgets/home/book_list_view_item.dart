@@ -28,7 +28,7 @@ final BookModel bookModel;
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            CustomBookImage(imageUrl: bookModel.volumeInfo.imageLinks.thumbnail),
+            CustomBookImage(imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail??""),
             SizedBox(
               width: Sized.s3,
             ),
@@ -50,8 +50,10 @@ final BookModel bookModel;
                   ),
                   DefaultText(
                     text: bookModel.volumeInfo.authors[0],
+                    maxLines: 1,
                     textStyle: TextStyles.textStyle14.copyWith(
                         color: ColorManager.grey,
+                        overflow: TextOverflow.ellipsis,
                         fontWeight: FontWeightManager.semiBold),
                   ),
                   SizedBox(

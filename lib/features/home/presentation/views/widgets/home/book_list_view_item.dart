@@ -6,12 +6,14 @@ import 'package:bookly/core/resources/images.dart';
 import 'package:bookly/core/resources/strings.dart';
 import 'package:bookly/core/resources/values.dart';
 import 'package:bookly/core/widget/default_text.dart';
+import 'package:bookly/features/home/data/models/BookModel.dart';
 import 'package:bookly/features/home/presentation/views/widgets/home/book_rating.dart';
+import 'package:bookly/features/home/presentation/views/widgets/home/custom_book_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 class BookListViewItem extends StatelessWidget {
-  const BookListViewItem({Key? key}) : super(key: key);
-
+  const BookListViewItem({Key? key, required this.bookModel}) : super(key: key);
+final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -26,18 +28,7 @@ class BookListViewItem extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            AspectRatio(
-              aspectRatio: 2.5 / 4,
-              child: Container(
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                    color: Colors.red,
-                    image: const DecorationImage(
-                      image: AssetImage(Images.imageList),
-                      fit: BoxFit.fill,
-                    )),
-              ),
-            ),
+            CustomBookImage(imageUrl: bookModel.volumeInfo.imageLinks.thumbnail),
             SizedBox(
               width: Sized.s3,
             ),
@@ -49,7 +40,7 @@ class BookListViewItem extends StatelessWidget {
                     width: Sized.s25,
                     child: DefaultText(
                       maxLines: 2,
-                      text: Strings.harryPotter,
+                      text: bookModel.volumeInfo.title!,
                       textStyle: TextStyles.textStyle20
                           .copyWith(fontFamily: AppConstants.kGtSectraFine),
                     ),
@@ -58,7 +49,7 @@ class BookListViewItem extends StatelessWidget {
                     height: Sized.sh8,
                   ),
                   DefaultText(
-                    text: Strings.nameBook,
+                    text: bookModel.volumeInfo.authors[0],
                     textStyle: TextStyles.textStyle14.copyWith(
                         color: ColorManager.grey,
                         fontWeight: FontWeightManager.semiBold),
@@ -69,17 +60,20 @@ class BookListViewItem extends StatelessWidget {
                  Row(
                    children: [
                      DefaultText(
-                       text: Strings.price,
+                       text: "Free",
                        textStyle: TextStyles.textStyle18
                            .copyWith(fontWeight: FontWeightManager.semiBold),
                      ),
-                     DefaultText(
-                       text: " €",
-                       textStyle: TextStyles.textStyle16
-                           .copyWith(fontWeight: FontWeightManager.bold),
-                     ),
+                     // DefaultText(
+                     //   text: " €",
+                     //   textStyle: TextStyles.textStyle16
+                     //       .copyWith(fontWeight: FontWeightManager.bold),
+                     // ),
                      const Spacer(),
-                     const BookRating(),
+                      BookRating(
+                       rating: bookModel.volumeInfo.averageRating??0,
+                        count: bookModel.volumeInfo.ratingsCount??0,
+                     ),
                    ],
                  )
 

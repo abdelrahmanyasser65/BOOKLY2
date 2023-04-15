@@ -43,6 +43,8 @@ class FirstSideBookDetails extends StatelessWidget {
             height: Sized.s2,
           ),
           const BookRating(
+            rating: 5,
+            count: 4,
             mainAxisAlignment: MainAxisAlignment.center,
           ),
           SizedBox(

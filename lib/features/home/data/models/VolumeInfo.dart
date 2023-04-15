@@ -5,7 +5,7 @@ import 'ImageLinks.dart';
 
 class VolumeInfo {
   VolumeInfo({
-      this.title, 
+      this.title,
       this.authors, 
       this.publisher, 
       this.publishedDate, 
@@ -15,8 +15,8 @@ class VolumeInfo {
       this.pageCount, 
       this.printType, 
       this.categories, 
-      this.averageRating, 
-      this.ratingsCount, 
+      this.averageRating,
+      this.ratingsCount,
       this.maturityRating, 
       this.allowAnonLogging, 
       this.contentVersion, 
@@ -65,7 +65,7 @@ class VolumeInfo {
   int ?pageCount;
   String ?printType;
   List<String> ?categories;
-  int ?averageRating;
+  var averageRating;
   int? ratingsCount;
   String ?maturityRating;
   bool ?allowAnonLogging;
@@ -93,7 +93,7 @@ class VolumeInfo {
     map['pageCount'] = pageCount;
     map['printType'] = printType;
     map['categories'] = categories;
-    map['averageRating'] = averageRating;
+     map['averageRating'] = averageRating;
     map['ratingsCount'] = ratingsCount;
     map['maturityRating'] = maturityRating;
     map['allowAnonLogging'] = allowAnonLogging;

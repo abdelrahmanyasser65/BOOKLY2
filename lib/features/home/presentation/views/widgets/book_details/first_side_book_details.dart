@@ -57,7 +57,9 @@ final BookModel bookModel;
           SizedBox(
             height: Sized.s3,
           ),
-          const DetailsAction(),
+           DetailsAction(
+            bookModel: bookModel,
+          ),
           Padding(
             padding: EdgeInsets.only(top: Sized.s5,
                 bottom: Sized.s2),
